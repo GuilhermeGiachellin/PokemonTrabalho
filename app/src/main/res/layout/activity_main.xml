@@ -6,15 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Spinner
-        android:id="@+id/spinner_elementos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="319dp"
-        android:layout_marginEnd="35dp"
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="341dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/spinner_elementos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933"
+        app:srcCompat="@drawable/logowip" />
+
+    <Spinner
+        android:id="@+id/spinner_elementos"
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="346dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="141dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="92dp"
+        android:text="Pesquisar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_elementos"
+        app:layout_constraintVertical_bias="0.984" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
