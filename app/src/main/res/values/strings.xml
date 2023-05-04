@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PokemonTrabalho</string>
+    <string name="app_name">PokeSearch</string>
     <string-array name="elementos">
         <item>teste</item>
         <item>teste2</item>

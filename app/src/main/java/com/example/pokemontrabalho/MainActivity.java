@@ -2,7 +2,9 @@ package com.example.pokemontrabalho;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -20,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
         spinnerElementos.setAdapter(adapter);
+
+    }
+
+
+    public void pesquisarButton(View v) {
+        startActivity(new Intent(this, pokemon.class));
 
     }
 }
