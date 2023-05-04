@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PokemonTrabalho</string>
+    <string-array name="elementos">
+        <item>teste</item>
+        <item>teste2</item>
+        <item>teste3</item>
+        <item>teste4</item>
+        <item>teste5</item>
+    </string-array>
+
 </resources>
