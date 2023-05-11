@@ -22,7 +22,7 @@ public class pokemon extends AppCompatActivity {
         LinearLayout containerHabilidades = findViewById(R.id.containerHabilidades);
 
         //Buttons criados dinamicamente baseado na quantia de habilidades
-        for (int i = 1; i <= 2; i++) {
+        for (int i = 1; i <= 8; i++) {
             Button button = new Button(this);
             button.setText("Button " + String.valueOf(i));
             button.setId(i);
