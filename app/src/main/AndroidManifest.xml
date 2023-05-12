@@ -12,6 +12,12 @@
         android:theme="@style/Theme.PokemonTrabalho"
         tools:targetApi="31">
         <activity
+            android:name=".habilidade"
+            android:exported="false" />
+        <activity
+            android:name=".pokemon"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
