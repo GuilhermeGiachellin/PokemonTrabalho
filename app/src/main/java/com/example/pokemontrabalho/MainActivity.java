@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog load;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void pesquisarButton(View v) {
+        GetJson download = new GetJson();
+        //Chama Async Task
+        download.execute();
 
         startActivity(new Intent(this, pokemon.class));
 
@@ -47,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected PokemonObject doInBackground(Void... params) {
             Utils util = new Utils();
-
-            return util.getInformacao("https://pokeapi.co/api/v2/pokemon-species/7/");
+//            int min = 1;
+//            int max = 20;
+            return util.getInformacao("https://pokeapi.co/api/v2/type/1" );
         }
 
         @Override
