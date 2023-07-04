@@ -11,15 +11,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class pokemon extends AppCompatActivity {
 
+    private TextView nome;
+    private TextView vida;
+    private TextView ataque;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon);
 
+
+
         LinearLayout containerHabilidades = findViewById(R.id.containerHabilidades);
+
+        Bundle bundle = getIntent().getExtras();
+        coletarIds();
+        popularCampos(bundle);
+
+
+        Log.i("STATSNA TELA BONITAETAL","NOME " + bundle.getString("nome") +  " VIDA " + bundle.getInt("vida") + "  ATAQUE " + bundle.getInt("Ataque"));
+
 
         //Buttons criados dinamicamente baseado na quantia de habilidades
         for (int i = 1; i <= 8; i++) {
@@ -39,8 +53,19 @@ public class pokemon extends AppCompatActivity {
         }
     }
 
+    public void coletarIds() {
+        nome = (TextView)findViewById(R.id.textNome);
+        vida = (TextView)findViewById(R.id.textVida);
+        ataque = (TextView)findViewById(R.id.textAtaque);
+    }
+
+    public void popularCampos(Bundle bundle) {
+        nome.setText(bundle.getString("nome"));
+        vida.setText("Vida: " + bundle.getInt("vida"));
+        ataque.setText("Ataque: " + bundle.getInt("ataque"));
+    }
+
     public void habilidadeButton(View v) {
         startActivity(new Intent(this, habilidade.class));
-
     }
 }

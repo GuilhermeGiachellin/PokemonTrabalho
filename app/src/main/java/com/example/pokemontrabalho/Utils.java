@@ -31,10 +31,22 @@ public class Utils {
     public PokemonObject parseJsonPokemon(String json) {
         try {
             PokemonObject pokemon = new PokemonObject();
+            HabilidadeObject habilidade = new HabilidadeObject();
             JSONObject jsonObj = new JSONObject(json);
 
             pokemon.setNome(jsonObj.getString("name"));
-            Log.i("COME CASADAAAAAAAAAAAAAAA", pokemon.getNome());
+
+            JSONArray array = jsonObj.getJSONArray("stats");
+            //PEGA VIDA
+            JSONObject objArray = array.getJSONObject(0);
+            pokemon.setVida(objArray.getInt("base_stat"));
+            //PEGA ATAQUE
+            objArray = array.getJSONObject(1);
+            pokemon.setAtaque(objArray.getInt("base_stat"));
+
+            Log.i("STATS","NOME " + pokemon.getNome() +  " VIDA " + pokemon.getVida() + "  ATAQUE " + pokemon.getAtaque());
+
+
 
             return pokemon;
         }catch (JSONException e) {
@@ -46,17 +58,18 @@ public class Utils {
 
     private String parseJsonUrl(String json){
         try {
+            Random random = new Random();
+            int number;
 
-            int min = 1;
-            int max = 20;
 
             JSONObject jsonObj = new JSONObject(json);
             JSONArray array = jsonObj.getJSONArray("pokemon");
+            //PEGA TAMANHO DA ARRAY DOS POKEMONS DENTRO DO JSON
+            number = random.nextInt(array.length());
 
-            JSONObject objArray = array.getJSONObject(1 );
+            JSONObject objArray = array.getJSONObject(number);
+
             JSONObject obj = objArray.getJSONObject("pokemon");
-
-//            new Random().nextInt(max - min + 1) + min
 
             return obj.getString("url");
 
