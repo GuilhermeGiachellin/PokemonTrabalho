@@ -54,7 +54,7 @@ public class Utils {
 
                 habilidade.setNome(objArray.getJSONObject("ability").getString("name"));
                 habilidade.setUrl(objArray.getJSONObject("ability").getString("url"));
-
+  asda
                 habilidadeArrayList.add(habilidade);
             }
             pokemon.setHabilidades(habilidadeArrayList);
