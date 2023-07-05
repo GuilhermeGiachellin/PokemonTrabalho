@@ -73,21 +73,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(PokemonObject pokemon){
+        protected void onPostExecute(PokemonObject pokemon) {
               trocarTela(pokemon);
-
-//            nome.setText(pessoa.getNome().substring(0,1).toUpperCase()+pessoa.getNome().substring(1));
-//            sobrenome.setText(pessoa.getSobrenome().substring(0,1).toUpperCase()+pessoa.getSobrenome().substring(1));
-//            email.setText(pessoa.getEmail());
-//            endereco.setText(pessoa.getEndereco());
-//            cidade.setText(pessoa.getCidade().substring(0,1).toUpperCase()+pessoa.getCidade().substring(1));
-//            estado.setText(pessoa.getEstado());
-//            username.setText(pessoa.getUsername());
-//            senha.setText(pessoa.getSenha());
-//            nascimento.setText(pessoa.getNascimento());
-//            telefone.setText(pessoa.getTelefone());
-//            foto.setImageBitmap(pessoa.getFoto());
-//            load.dismiss();
+              load.dismiss();
         }
     }
 }

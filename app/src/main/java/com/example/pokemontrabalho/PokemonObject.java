@@ -1,13 +1,17 @@
 package com.example.pokemontrabalho;
 
+import java.util.ArrayList;
+
 public class PokemonObject {
     private String nome;
-    private String descricao;
     private String tipo;
     private Integer ataque;
     private Integer vida;
+    private ArrayList<HabilidadeObject> habilidades;
 
-    private HabilidadeObject habilidade;
+    public PokemonObject() {
+        habilidades = new ArrayList<HabilidadeObject>();
+    }
 
     public String getTipo() {
         return tipo;
@@ -15,14 +19,6 @@ public class PokemonObject {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public String getNome() {
@@ -49,11 +45,13 @@ public class PokemonObject {
         this.vida = vida;
     }
 
-    public HabilidadeObject getHabilidade() {
-        return habilidade;
+
+    public ArrayList<HabilidadeObject> getHabilidades() {
+        return habilidades;
     }
 
-    public void setHabilidade(HabilidadeObject habilidade) {
-        this.habilidade = habilidade;
+    public void setHabilidades(ArrayList<HabilidadeObject> habilidades) {
+        this.habilidades.clear();
+        this.habilidades.addAll(habilidades);
     }
 }

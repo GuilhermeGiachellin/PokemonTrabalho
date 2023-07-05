@@ -23,17 +23,11 @@ public class pokemon extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon);
 
-
-
         LinearLayout containerHabilidades = findViewById(R.id.containerHabilidades);
 
         Bundle bundle = getIntent().getExtras();
         coletarIds();
         popularCampos(bundle);
-
-
-        Log.i("STATSNA TELA BONITAETAL","NOME " + bundle.getString("nome") +  " VIDA " + bundle.getInt("vida") + "  ATAQUE " + bundle.getInt("Ataque"));
-
 
         //Buttons criados dinamicamente baseado na quantia de habilidades
         for (int i = 1; i <= 8; i++) {

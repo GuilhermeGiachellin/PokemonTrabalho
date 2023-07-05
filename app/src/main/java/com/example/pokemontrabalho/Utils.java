@@ -7,15 +7,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
 public class Utils {
 
-
+    private ArrayList<HabilidadeObject> habilidadeArrayList = new ArrayList<HabilidadeObject>();
     public PokemonObject getInformacao(String end){
         String url = "";
         String json;
+        habilidadeArrayList.clear();
         PokemonObject novoPokemon = null;
         //recebe a string com o nome do pokemon
         json = NetworkUtils.getJSONFromAPI(end);
@@ -31,7 +33,7 @@ public class Utils {
     public PokemonObject parseJsonPokemon(String json) {
         try {
             PokemonObject pokemon = new PokemonObject();
-            HabilidadeObject habilidade = new HabilidadeObject();
+
             JSONObject jsonObj = new JSONObject(json);
 
             pokemon.setNome(jsonObj.getString("name"));
@@ -43,24 +45,31 @@ public class Utils {
             //PEGA ATAQUE
             objArray = array.getJSONObject(1);
             pokemon.setAtaque(objArray.getInt("base_stat"));
+            //PEGA HABILIDADE
+            array = jsonObj.getJSONArray("abilities");
 
-            Log.i("STATS","NOME " + pokemon.getNome() +  " VIDA " + pokemon.getVida() + "  ATAQUE " + pokemon.getAtaque());
+            for(int i = 0 ; i < array.length(); i++) {
+                HabilidadeObject habilidade = new HabilidadeObject();
+                objArray = array.getJSONObject(i);
 
+                habilidade.setNome(objArray.getJSONObject("ability").getString("name"));
+                habilidade.setUrl(objArray.getJSONObject("ability").getString("url"));
 
+                habilidadeArrayList.add(habilidade);
+            }
+            pokemon.setHabilidades(habilidadeArrayList);
 
             return pokemon;
         }catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
-
     }
 
     private String parseJsonUrl(String json){
         try {
             Random random = new Random();
             int number;
-
 
             JSONObject jsonObj = new JSONObject(json);
             JSONArray array = jsonObj.getJSONArray("pokemon");
