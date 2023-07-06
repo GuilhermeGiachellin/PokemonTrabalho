@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -19,6 +20,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     private ProgressDialog load;
+    private Spinner valorSpinner;
+    private Integer posicaoType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void pesquisarButton(View v) {
-        GetJson download = new GetJson();
-        //Chama Async Task
-        download.execute();
+        valorSpinner = (Spinner) findViewById(R.id.spinner_elementos);
+        posicaoType = valorSpinner.getSelectedItemPosition() - 1;
+        if(posicaoType >= 0) {
+            GetJson download = new GetJson();
+            //Chama Async Task
+            download.execute();
+        }
     }
 
     public void trocarTela(PokemonObject pokemon) {
@@ -65,11 +72,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected PokemonObject doInBackground(Void... params) {
             Utils util = new Utils();
-            Random random = new Random();
-            int number;
-            number = random.nextInt(20);
-            //PEGA UM VALOR RANDOM DE 0 A 19
-            return util.getInformacao("https://pokeapi.co/api/v2/type/" + number );
+            //PEGA O VALOR DA POSICAO DO SPINNER E CONCATENA NO URL
+            return util.getInformacao("https://pokeapi.co/api/v2/type/" + posicaoType );
         }
 
         @Override
