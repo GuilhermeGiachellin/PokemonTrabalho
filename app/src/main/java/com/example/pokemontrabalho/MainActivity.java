@@ -53,9 +53,14 @@ public class MainActivity extends AppCompatActivity {
     public void trocarTela(PokemonObject pokemon) {
         //PASSA OBJETO PARA PARA O POKEMON ACTIVITY
         Intent intent = new Intent(this, pokemon.class);
-        intent.putExtra("nome", pokemon.getNome());
-        intent.putExtra("ataque", pokemon.getAtaque());
-        intent.putExtra("vida", pokemon.getVida());
+        intent.putExtra("pokemon", pokemon);
+
+        //PUT EXTRA PARA COLOCAR AS INFORMAÇÕES COLETADAS DAS HABILIDADE
+        for(int i = 0; i < pokemon.getHabilidades().size(); i++) {
+            intent.putExtra("nomeHabilidade" + i, "" + pokemon.getHabilidades().get(i).getNome());
+            intent.putExtra("urlHabilidade" + i, "" + pokemon.getHabilidades().get(i).getUrl());
+        }
+        intent.putExtra("tamanhoArray", pokemon.getHabilidades().size());
         startActivity(intent);
     }
 

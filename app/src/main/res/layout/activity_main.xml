@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background=" #ff473d">
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -22,14 +23,16 @@
     <Spinner
         android:id="@+id/spinner_elementos"
         android:layout_width="341dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginBottom="346dp"
         android:textSize="40sp"
         android:contentDescription="Elementos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogo" />
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
+        android:background="#ffffff"
+        android:textColor="#ff473d"/>
 
     <Button
         android:id="@+id/buttonPesquisar"
@@ -42,7 +45,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner_elementos"
-        app:layout_constraintVertical_bias="0.984" />
+        app:layout_constraintVertical_bias="0.984"
+        android:background="@drawable/btn_padrao"
+        android:textColor="#ff473d"
+        android:textSize="16sp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

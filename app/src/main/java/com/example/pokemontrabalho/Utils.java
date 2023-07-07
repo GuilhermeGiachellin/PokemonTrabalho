@@ -27,8 +27,45 @@ public class Utils {
         json = NetworkUtils.getJSONFromAPI(url);
         novoPokemon = parseJsonPokemon(json);
 
+
         return novoPokemon;
     }
+    //EXEMPLO DE COMO AS INFORMAÇÕES SÃO EXTRAIDAS DO JASON
+    public HabilidadeObject getInformacaoHabilidade(String end) {
+        String json;
+
+        HabilidadeObject novaHabilidade = null;
+
+        json = NetworkUtils.getJSONFromAPI(end);
+        novaHabilidade = parseJsonHabilidade(json);
+
+        return novaHabilidade;
+    }
+
+    public HabilidadeObject parseJsonHabilidade(String json) {
+        try {
+            HabilidadeObject habilidade = new HabilidadeObject();
+
+            JSONObject jsonObj = new JSONObject(json);
+
+            habilidade.setNome(jsonObj.getString("name"));
+
+            JSONArray array = jsonObj.getJSONArray("flavor_text_entries");
+            JSONObject objArray = array.getJSONObject(0);
+            habilidade.setEfeito(objArray.getString("flavor_text"));
+
+            array = jsonObj.getJSONArray("effect_entries");
+            objArray = array.getJSONObject(1);
+            habilidade.setDescricao(objArray.getString("effect"));
+
+            return habilidade;
+        }catch (JSONException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
 
     public PokemonObject parseJsonPokemon(String json) {
         try {
@@ -56,6 +93,7 @@ public class Utils {
                 habilidade.setUrl(objArray.getJSONObject("ability").getString("url"));
 
                 habilidadeArrayList.add(habilidade);
+
             }
             pokemon.setHabilidades(habilidadeArrayList);
 
