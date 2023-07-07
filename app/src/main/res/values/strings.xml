@@ -1,11 +1,26 @@
 <resources>
     <string name="app_name">PokeSearch</string>
     <string-array name="elementos">
-        <item>teste</item>
-        <item>teste2</item>
-        <item>teste3</item>
-        <item>teste4</item>
-        <item>teste5</item>
+        <item>Normal</item>
+        <item>Fighting</item>
+        <item>Flying</item>
+        <item>Poison</item>
+        <item>Ground</item>
+        <item>Rock</item>
+        <item>Bug</item>
+        <item>Ghost</item>
+        <item>Steel</item>
+        <item>Fire</item>
+        <item>Water</item>
+        <item>Grass</item>
+        <item>Eletric</item>
+        <item>Psychic</item>
+        <item>Ice</item>
+        <item>Dragon</item>
+        <item>Dark</item>
+        <item>Fairy</item>
+        <item>Unknown</item>
+        <item>Shadow</item>
     </string-array>
 
 </resources>
